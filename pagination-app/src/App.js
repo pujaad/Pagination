@@ -23,7 +23,7 @@ function App() {
       const data = await response.json();
       setTable(data);
     }catch(error){
-      alert(`Error fetching data: ${error.message}`);
+      alert(`failed to fetch data: ${error.message}`);
     }
   }
 
