@@ -17,10 +17,13 @@ function App() {
     async function fetchApi() {
       try{
       const response = await fetch("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json");
+      if (!response.ok) {
+        throw new Error('Failed to fetch');
+      }
       const data = await response.json();
       setTable(data);
     }catch(error){
-      console.log("failed to fetch data",error)
+      alert(`Error fetching data: ${error.message}`);
     }
   }
 
